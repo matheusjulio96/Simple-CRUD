@@ -25,9 +25,9 @@
       <th><input class="form-control" type="date" [(ngModel)]="filter.date" /></th>
       <th>
         <select class="form-select" [(ngModel)]="filter.active">
-          <option [ngValue]="null">Todos</option>
-          <option [ngValue]="true">Sim</option>
-          <option [ngValue]="false">Não</option>
+          <option [ngValue]="null">All</option>
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
         </select>
       </th>
       <th><input class="form-control" type="text" [(ngModel)]="filter.country" style="width: 50px"/></th>
@@ -57,7 +57,7 @@
       <td>{{ person.username }}</td>
       <td>{{ person.fullname }}</td>
       <td>{{ person.date | date:'dd/MM/yyyy' }}</td>
-      <td>{{ person.active ? 'sim' : 'não' }}</td>
+      <td>{{ person.active ? 'Yes' : 'No' }}</td>
       <td>{{ person.country }}</td>
       <td>{{ person.role }}</td>
       <td class="text-center">

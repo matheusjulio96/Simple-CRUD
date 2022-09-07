@@ -46,20 +46,20 @@ export class PersonListComponent {
 
   deleteClick(id: string) {
     Swal.fire({
-      title: 'Tem certeza?',
-      text: "Não será possível reverter a ação!",
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, excluir!'
+      confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.personService.delete(Number(id)).subscribe(response => {
           if (response.success)
             Swal.fire(
-              'Excluido!',
-              'O registro foi excluído.',
+              'Deleted!',
+              'Your file has been deleted.',
               'success'
             )
           else

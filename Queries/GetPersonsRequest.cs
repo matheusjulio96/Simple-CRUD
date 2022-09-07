@@ -15,6 +15,7 @@ namespace Simple_CRUD.Queries
         public bool? Active { get; set; }
         public string? Country { get; set; }
         public string? Role { get; set; }
-        //paginacao
+
+        //TODO: paging
     }
 }

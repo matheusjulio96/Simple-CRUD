@@ -36,7 +36,7 @@ namespace Simple_CRUD.Commands.Handlers
 
             return new CommandResponse<Person> { 
                 Success = entries > 0, 
-                Message = "Inserido com sucesso",
+                Message = "Created",
                 Data = entity.ToModel()
             };
         }
@@ -47,7 +47,7 @@ namespace Simple_CRUD.Commands.Handlers
 
             var entity = await dbContext.Persons.FindAsync(keyValues: request.Id);
             
-            if (entity is null) return new CommandResponse<Person> { Success = false, Message = "Não encontrado" };
+            if (entity is null) return new CommandResponse<Person> { Success = false, Message = "Not found" };
 
             entity.UserName = request.UserName;
             entity.FullName = request.FullName;
@@ -63,14 +63,14 @@ namespace Simple_CRUD.Commands.Handlers
                 return new CommandResponse<Person>
                 {
                     Success = true,
-                    Message = "Alterado com sucesso",
+                    Message = "Updated",
                     Data = entity.ToModel()
                 };
             else
                 return new CommandResponse<Person>
                 {
                     Success = false,
-                    Message = "Nenhuma mudança realizada",
+                    Message = "No changes made",
                     Data = entity.ToModel()
                 };
         }
@@ -81,7 +81,7 @@ namespace Simple_CRUD.Commands.Handlers
 
             var entity = await dbContext.Persons.FindAsync(keyValues: request.Id);
 
-            if (entity is null) return new CommandResponse<Person> { Success = false, Message = "Não encontrado" };
+            if (entity is null) return new CommandResponse<Person> { Success = false, Message = "Not found" };
 
             dbContext.Persons.Remove(entity);
             var entries = await dbContext.SaveChangesAsync();
@@ -90,14 +90,14 @@ namespace Simple_CRUD.Commands.Handlers
                 return new CommandResponse<Person>
                 {
                     Success = true,
-                    Message = "Excluído com sucesso",
+                    Message = "Deleted",
                     Data = entity.ToModel()
                 };
             else
                 return new CommandResponse<Person>
                 {
                     Success = false,
-                    Message = "Nenhuma mudança realizada",
+                    Message = "No changes made",
                     Data = entity.ToModel()
                 };
         }
