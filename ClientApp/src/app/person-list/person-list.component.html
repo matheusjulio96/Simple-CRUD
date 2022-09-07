@@ -1,0 +1,71 @@
+<h1 id="tableLabel">Persons</h1>
+
+<p *ngIf="!persons"><em>Carregando...</em></p>
+
+<div class="container-fluid px-0 my-3">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-success" (click)="addRecordClick()">
+        Add Record
+      </button>
+    </div>
+
+    <div class="col-auto">
+      
+    </div>
+  </div>
+</div>
+
+<table class='table table-striped table-bordered' aria-labelledby="tableLabel" *ngIf="persons">
+  <thead>
+    <tr (keyup.enter)="search()">
+      <th><input class="form-control" type="number" [(ngModel)]="filter.id" min="0" style="width: 65px"/></th>
+      <th><input class="form-control" type="text" [(ngModel)]="filter.username" /></th>
+      <th><input class="form-control" type="text" [(ngModel)]="filter.fullname" /></th>
+      <th><input class="form-control" type="date" [(ngModel)]="filter.date" /></th>
+      <th>
+        <select class="form-select" [(ngModel)]="filter.active">
+          <option [ngValue]="null">Todos</option>
+          <option [ngValue]="true">Sim</option>
+          <option [ngValue]="false">Não</option>
+        </select>
+      </th>
+      <th><input class="form-control" type="text" [(ngModel)]="filter.country" style="width: 50px"/></th>
+      <th><input class="form-control" type="text" [(ngModel)]="filter.role" style="width: 50px"/></th>
+      <td>
+        <button class="btn btn-success" (click)="search()" type="submit">
+          Search
+        </button>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Fullname</th>
+      <th>Date</th>
+      <th>Active</th>
+      <th>Country</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{ person.id }}</td>
+      <td>{{ person.username }}</td>
+      <td>{{ person.fullname }}</td>
+      <td>{{ person.date | date:'dd/MM/yyyy' }}</td>
+      <td>{{ person.active ? 'sim' : 'não' }}</td>
+      <td>{{ person.country }}</td>
+      <td>{{ person.role }}</td>
+      <td class="text-center">
+        <button class="btn btn-warning btn-sm" (click)="editClick(person.id)">Edit</button>
+      </td>
+      <td class="text-center">
+        <button class="btn btn-danger  btn-sm" (click)="deleteClick(person.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

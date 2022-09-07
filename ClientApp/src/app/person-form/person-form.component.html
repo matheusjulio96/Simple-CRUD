@@ -1,0 +1,95 @@
+
+<div class="container-fluid">
+  <div class="row mb-2">
+    <div class="col-auto">
+      <button class="btn btn-success" (click)="save()">Save</button>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-success ml-3" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-3 border pt-3 pb-1" [formGroup]="personModel">
+  <div class="row mb-2">
+    <label for="id" class="col-form-label col-sm-2">ID</label>
+    <div class="col-sm-7">
+      <input type="number"
+             form="personModel"
+             class="form-control"
+             name="id"
+             [value]="personModel.value.id"
+             readonly />
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="username" class="col-form-label col-sm-2">Username</label>
+    <div class="col-sm-7">
+      <input type="text"
+             form="personModel"
+             class="form-control"
+             name="username"
+             id="username"
+             formControlName="username" />
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="fullname" class="col-form-label col-sm-2">Fullname</label>
+    <div class="col-sm-7">
+      <input type="text"
+             form="personModel"
+             class="form-control"
+             name="fullname"
+             id="fullname"
+             formControlName="fullname" />
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="date" class="col-form-label col-sm-2">Date</label>
+    <div class="col-auto">
+      <input type="date"
+             form="personModel"
+             class="form-control"
+             name="date"
+             id="date"
+             formControlName="date" />
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="active" class="col-form-label col-sm-2">Active</label>
+    <div class="col-sm-7 d-flex">
+      <div class="form-check my-auto">
+        <input type="checkbox"
+               form="personModel"
+               class="form-check-input"
+               name="active"
+               id="active"
+               formControlName="active" />
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="country" class="col-form-label col-sm-2">Country</label>
+    <div class="col-sm-7">
+      <input type="text"
+             form="personModel"
+             class="form-control"
+             name="country"
+             id="country"
+             formControlName="country" />
+    </div>
+  </div>
+  <div class="row mb-2">
+    <label for="role" class="col-form-label col-sm-2">Role</label>
+    <div class="col-sm-7">
+      <input type="text"
+             form="personModel"
+             class="form-control"
+             name="role"
+             id="role"
+             formControlName="role" />
+    </div>
+  </div>
+
+</div>
+
