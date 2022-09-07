@@ -31,7 +31,6 @@ export class PersonFormComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap((params) => {
-        console.log(params.get('id'));
         let id = params.get('id') ?? '';
         if (!id) return of();
         return this.personService.getById(Number(id));
@@ -55,7 +54,6 @@ export class PersonFormComponent implements OnInit {
     if (!this.personModel.value.id)
       this.personService.create(this.personModel.value).subscribe(
         response => {
-          console.log(response);
           //TODO: mensagem
           if (response.success) {
             this.router.navigate(['']);
@@ -69,7 +67,6 @@ export class PersonFormComponent implements OnInit {
     else
       this.personService.update(this.personModel.value).subscribe(
         response => {
-          console.log(response);
           //TODO: mensagem
           if (response.success) {
             this.router.navigate(['']);

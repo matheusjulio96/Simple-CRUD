@@ -59,7 +59,7 @@ export class PersonListComponent {
           if (response.success)
             Swal.fire(
               'Deleted!',
-              'Your file has been deleted.',
+              'The record has been deleted.',
               'success'
             )
           else
@@ -68,7 +68,7 @@ export class PersonListComponent {
               response.message,
               'error'
             )
-          this.personService.get().pipe(take(1)).subscribe(result => {
+          this.personService.get(this.filter).pipe(take(1)).subscribe(result => {
             this.persons = result;
           }, error => console.error(error));
         })
